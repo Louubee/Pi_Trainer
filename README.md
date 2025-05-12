@@ -24,7 +24,7 @@ pi-trainer/
 ├── pi.txt         # Fichier contenant les décimales de π (en une seule ligne)
 ├── requirements.txt # Dépendances Python
 └── README.md      # Ce fichier de documentation
-
+```
 
 ---
 
