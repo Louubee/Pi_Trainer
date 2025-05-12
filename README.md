@@ -18,10 +18,9 @@
 ## 📁 Structure du projet
 
 pi-trainer/
-│
-├── app.py # Application principale Streamlit
-├── pi.txt # Fichier contenant les décimales de π (en une seule ligne)
-├── README.md # Ce fichier
+├── app.py        # Application principale Streamlit
+├── pi.txt        # Fichier contenant les décimales de π (en une seule ligne)
+└── README.md     # Documentation du projet
 
 ---
 
