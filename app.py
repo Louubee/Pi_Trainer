@@ -76,18 +76,19 @@ with onglets[0]:
 with onglets[1]:
     st.markdown("""
         <h2 style='text-align: center; color: #2196F3; margin-bottom: 1em;'>
-            📘 Lecture des 10 000 premières décimales de π
+            📘 Lecture des 100 000 premières décimales de π
         </h2>
     """, unsafe_allow_html=True)
     st.divider()
 
 
     suite = st.session_state.get("suite_affichee", "")
-    pi_10k = pi_decimales[:10000]
+    pi_100k = pi_decimales[:100000]
+
 
     # Surlignage : insérer la balise AVANT de faire les blocs
-    if suite and suite in pi_10k:
-        pi_10k = pi_10k.replace(
+    if suite and suite in pi_100k:
+        pi_100k = pi_100k.replace(
             suite,
             f"<span style='background-color: yellow; font-weight: bold'>{suite}</span>",
             1  # seulement la première occurrence
@@ -98,19 +99,19 @@ with onglets[1]:
     current_index = 0
     display_index = 0
 
-    while current_index < len(pi_10k):
+    while current_index < len(pi_100k):
         bloc = ""
         bloc_length = 0
         i = current_index
 
         # Compter les chiffres visibles (en ignorant les balises HTML)
-        while i < len(pi_10k) and bloc_length < 100:
-            if pi_10k[i] == "<":
-                end_tag = pi_10k.find(">", i)
-                bloc += pi_10k[i:end_tag + 1]
+        while i < len(pi_100k) and bloc_length < 100:
+            if pi_100k[i] == "<":
+                end_tag = pi_100k.find(">", i)
+                bloc += pi_100k[i:end_tag + 1]
                 i = end_tag + 1
             else:
-                bloc += pi_10k[i]
+                bloc += pi_100k[i]
                 bloc_length += 1
                 i += 1
 
@@ -142,7 +143,7 @@ with onglets[1]:
             blocs.append(sous_bloc)
 
         ligne_formatee = "    ".join(blocs)
-        lignes.append(f"{str(display_index).zfill(4)} : {ligne_formatee}")
+        lignes.append(f"{str(display_index).zfill(6)} : {ligne_formatee}")
         display_index += 100
 
     contenu_html = "<br>".join(lignes)
